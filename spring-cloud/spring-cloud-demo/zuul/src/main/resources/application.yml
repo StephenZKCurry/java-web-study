@@ -1,0 +1,15 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    # 给服务提供者设置映射，即访问/provider/**路径会映射到server-provider服务
+    server-provider: /provider/**
